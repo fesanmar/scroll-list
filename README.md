@@ -1,5 +1,7 @@
 # scroll-list
 
+[![Build Status](https://travis-ci.org/fesanmar/scroll-list.svg?branch=main)](https://travis-ci.org/fesanmar/scroll-list)
+
 Haskell package that provides functions for relocate an item within a list.
 
 ## Usage
@@ -27,3 +29,5 @@ Some examples are given below:
   >>> down 0 4 ["one", "two", "three"]
   ["two", "three", "one"]
 ```
+
+Read the documentation in [hackage](https://hackage.haskell.org/package/scroll-list-1.0.0.0).
