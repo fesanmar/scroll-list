@@ -1,3 +1,5 @@
 # Changelog for scroll-list
 
-## Unreleased changes
+## 1.0.0.1
+
+Fixes documentation on `up` and `down` functions examples.

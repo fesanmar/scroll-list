@@ -23,7 +23,7 @@ module Data.List.Scroll
 
   Some examples are given below:
 
-  >>> up 2 3 ["one", "two", "three"]
+  >>> up 2 2 ["one", "two", "three"]
   ["three", "one", "two"]
 
   >>> up 4 1 ["one", "two", "three"]
@@ -52,7 +52,7 @@ up index steps items
   >>> down 0 1 ["one", "two", "three"]
   ["two", "one", "three"]
 
-  >>> up 4 1 ["one", "two", "three"]
+  >>> down 4 1 ["one", "two", "three"]
   ["one", "two", "three"]
 
   >>> down 0 4 ["one", "two", "three"]

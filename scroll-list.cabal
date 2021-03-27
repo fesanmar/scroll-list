@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 1ec4792a1ffa7ff2289502c3763a8992681b182a92ae44c2690b047aad6a0659
+-- hash: 8450c7bfb97a732e2943ad6f25dff3b5a40d059a909352dc8479fd312809f1f6
 
 name:           scroll-list
-version:        1.0.0.0
+version:        1.0.0.1
 synopsis:       This package provides functions for relocate an item within a list.
 description:    Please see the README on GitHub at <https://github.com/fesanmar/scroll-list#readme>
 category:       List
