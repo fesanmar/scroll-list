@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 8450c7bfb97a732e2943ad6f25dff3b5a40d059a909352dc8479fd312809f1f6
+-- hash: 2749241628a030a1f86916675e049ccc416fa9d14f3b9a436f7e9fdc3f433fc2
 
 name:           scroll-list
 version:        1.0.0.1
@@ -36,6 +36,7 @@ library
       src
   build-depends:
       base >=4.7 && <5
+    , extra
   default-language: Haskell2010
 
 test-suite scroll-list-test

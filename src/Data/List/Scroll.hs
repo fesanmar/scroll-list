@@ -15,6 +15,8 @@ module Data.List.Scroll
     , down
     ) where
 
+import Data.Tuple.Extra (second)
+
 {-|
   The 'up' function moves an element 'n' positions to 
   the beginning of a list. If the index provided is out 
@@ -33,13 +35,11 @@ module Data.List.Scroll
   ["three", "one", "two"]
 -}
 up :: Int -> Int -> [a] -> [a]
-up index steps items
-  | steps <= 0 || index <= 0 || index >= length items = items
-  | otherwise = up prev (steps -1) oneStepUpList
-  where
-    oneStepUpList = take prev items ++ (items !! index) : items !! prev : drop next items
-    prev = index - 1
-    next = index + 1
+up index steps ls
+  | any (<= 0) [steps, index, length ls - index] = ls
+  | otherwise = take prev ls ++ (ls !! index) : drop prev lsNoTarget
+  where prev = index - steps
+        lsNoTarget = uncurry (++) . second (drop 1) $ splitAt index ls
 
 {-|
   The 'down' function moves an element 'n' positions to 
@@ -59,6 +59,5 @@ up index steps items
   ["two", "three", "one"]
 -}
 down :: Int -> Int -> [a] -> [a]
-down index steps items = reverse . up reverseIndex steps $ reverse items
-  where
-    reverseIndex = length items - index - 1
+down index steps ls = reverse . up reverseIndex steps $ reverse ls
+  where reverseIndex = length ls - index - 1
