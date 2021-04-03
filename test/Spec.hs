@@ -1,12 +1,35 @@
 import Test.Hspec        (Spec, it, shouldBe, runIO)
 import Test.Hspec.Runner (configFastFail, defaultConfig, hspecWith)
-import Data.List.Scroll ( down, up )
+import Data.List.Scroll ( down, up, deleteByIndex )
 
 main :: IO ()
 main =  hspecWith defaultConfig {configFastFail = True} specs
 
 specs :: Spec
 specs = do
+    
+    -- Deleting
+    it "Removing the middle item from a list" $
+     deleteByIndex 1 toThree `shouldBe` ["one", "three"]
+    
+    it "Removing the first item from a list" $
+     deleteByIndex 0 toThree `shouldBe` ["two", "three"]
+    
+    it "Removing the last item from a list" $
+     deleteByIndex 2 toThree `shouldBe` ["one", "two"]
+    
+    it "Removing an item from a singleton list" $
+     null (deleteByIndex 0 ["one"]) `shouldBe` True
+
+    it "Removing an item from an empty list" $
+     null (deleteByIndex 1 []) `shouldBe` True
+
+    it "Removing an out of range item from a list" $
+     deleteByIndex 3 toThree `shouldBe` toThree
+    
+    it "Removing an out of range negative index from a list" $
+     deleteByIndex (-1) toThree `shouldBe` toThree
+
     -- Moving up
     it "Moving up an out of range index" $
      up 4 1 toThree `shouldBe` toThree

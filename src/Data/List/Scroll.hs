@@ -13,9 +13,10 @@ relocate an item within a list.
 module Data.List.Scroll
     ( up
     , down
+    , deleteByIndex
     ) where
 
-import Data.Tuple.Extra (second)
+import Data.Tuple.Extra ( second )
 
 {-|
   The 'up' function moves an element 'n' positions to 
@@ -37,9 +38,9 @@ import Data.Tuple.Extra (second)
 up :: Int -> Int -> [a] -> [a]
 up index steps ls
   | any (<= 0) [steps, index, length ls - index] = ls
-  | otherwise = take prev ls ++ (ls !! index) : drop prev lsNoTarget
+  | otherwise = take prev ls ++ (ls !! index) : tailNoTarget
   where prev = index - steps
-        lsNoTarget = uncurry (++) . second (drop 1) $ splitAt index ls
+        tailNoTarget = drop prev $ deleteByIndex index ls
 
 {-|
   The 'down' function moves an element 'n' positions to 
@@ -61,3 +62,21 @@ up index steps ls
 down :: Int -> Int -> [a] -> [a]
 down index steps ls = reverse . up reverseIndex steps $ reverse ls
   where reverseIndex = length ls - index - 1
+
+{-|
+  The 'deleteByIndex' function removes an element
+  from a list by its position within it. For example,
+
+  >>> deleteByIndex 1 ["one", "two", "three"]
+  ["one", "three"]
+
+  If index is out of range, the list will be returned
+  with no changes. For example:
+
+  >>> deleteByIndex 3 ["one", "two", "three"]
+  ["one", "two", "three"]
+-}
+deleteByIndex :: Int -> [a] -> [a]
+deleteByIndex index ls
+  | index < 0 = ls
+  | otherwise = uncurry (++) . second (drop 1) $ splitAt index ls

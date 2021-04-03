@@ -7,27 +7,33 @@ Haskell package that provides functions for relocate an item within a list.
 ## Usage
 
 Add scroll-list to your `package.yml` and import `Data.List.Scroll` module.
+The following functions are available in the module:
 
-Some examples are given below:
+### Up function
+
+The `up` function moves an element 'n' positions to the beginning of a list.
 
 ```Haskell
-  >>> up 2 2 ["one", "two", "three"]
-  ["three", "one", "two"]
+>>> up 2 2 ["one", "two", "three"]
+["three", "one", "two"]
+```
 
-  >>> up 4 1 ["one", "two", "three"]
-  ["one", "two", "three"]
+### Down function
 
-  >>> up 2 3 ["one", "two", "three"]
-  ["three", "one", "two"]
+The `down` function moves an element `n` positions to the end of a list.
 
-  >>> down 0 1 ["one", "two", "three"]
-  ["two", "one", "three"]
+```Haskell
+>>> down 0 1 ["one", "two", "three"]
+["two", "one", "three"]
+```
 
-  >>> down 4 1 ["one", "two", "three"]
-  ["one", "two", "three"]
+### Remove by idenx function
 
-  >>> down 0 4 ["one", "two", "three"]
-  ["two", "three", "one"]
+The `deleteByIndex` function removes an element from a list by its  within it.
+
+```Haskell
+>>> deleteByIndex 1 ["one", "two", "three"]
+["one", "three"]
 ```
 
 Read the documentation in [hackage](https://hackage.haskell.org/package/scroll-list-1.0.0.1).
