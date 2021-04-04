@@ -36,4 +36,4 @@ The `deleteByIndex` function removes an element from a list by its  within it.
 ["one", "three"]
 ```
 
-Read the documentation in [hackage](https://hackage.haskell.org/package/scroll-list-1.0.0.1).
+Read the documentation in [hackage](https://hackage.haskell.org/package/scroll-list-1.1.0.0).

@@ -1,5 +1,5 @@
 name:                scroll-list
-version:             1.0.0.1
+version:             1.1.0.0
 github:              "fesanmar/scroll-list"
 license:             BSD3
 author:              "Felipe Santa-Cruz"
@@ -25,7 +25,7 @@ dependencies:
 library:
   source-dirs: src
   dependencies:
-  - extra
+  - extra >= 1.7.9 && < 2.0.0
 
 tests:
   scroll-list-test:
